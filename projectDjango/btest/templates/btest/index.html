@@ -14,8 +14,22 @@
 	<div>
 		<h2>{{ bb.title }}</h2>
 		<p>{{ bb.content }}</p>
+		<p>{{ bb.rubric.name}}</p>
 		<p>{{ bb.published|date:"d.m.Y. H:i:s"}}</p>
 	</div>
 	{% endfor %}
+
+	<h1>Рубрики</h1>
+	{% for rub in rs %}
+		<h2> {{ rub.name }}</h2>
+		<ol>
+			{% for bb in rub.bb_set.all %}
+				<li>
+					{{ bb.title }}
+					{{ bb.published|date:"d.m.Y. H:i:s"}}
+				</li>
+			{% endfor%}
+		</ol>
+	{% endfor%}
 </body>
 </html>

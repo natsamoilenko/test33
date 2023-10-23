@@ -20,6 +20,7 @@ from btest import views
 
 urlpatterns = [
     path('', views.index),
+    path('btest/', include('btest.urls')),
     path('admin/', admin.site.urls),
 ]
 
